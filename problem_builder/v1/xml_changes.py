@@ -60,7 +60,7 @@ class PrefixTags(Change):
     """ Most old elements now get a pb- prefix """
     @staticmethod
     def applies_to(node):
-        return node.tag in ("tip", "choice", "answer", "mcq", "mrq", "rating", "column", "message")
+        return node.tag in ("tip", "choice", "answer", "mcq", "mrq", "rating", "column", "message", "arg")
 
     def apply(self):
         self.node.tag = "pb-" + self.node.tag
@@ -372,7 +372,7 @@ class CommaSeparatedListToJson(Change):
 
     @staticmethod
     def applies_to(node):
-        return node.tag in ("pb-tip", "pb-mrq", "pb-mcq", "pb-rating")
+        return node.tag in ("pb-tip", "pb-mrq", "pb-mcq", "pb-rating", "pb-arg")
 
     def apply(self):
         for attribute in self.APPLY_TO_ATTRIBUTES:
@@ -387,7 +387,7 @@ class OptionalShowTitleDefaultToFalse(Change):
     """
     @staticmethod
     def applies_to(node):
-        return node.tag in ("pb-answer", "pb-mrq", "pb-mcq", "pb-rating") and ("show_title" not in node.attrib)
+        return node.tag in ("pb-answer", "pb-mrq", "pb-mcq", "pb-rating", "pb-arg") and ("show_title" not in node.attrib)
 
     def apply(self):
         self.node.attrib["show_title"] = "false"

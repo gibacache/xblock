@@ -1,0 +1,26 @@
+<fieldset class="choices questionnaire" data-hide_results="{{self.hide_results}}" data-hide_prev_answer="{{hide_prev_answer}}">
+  <legend class="question">
+	  {% if not hide_header %}<h3 class="question-title">{{ self.display_name_with_default }}</h3>{% endif %}
+    <p>{{ self.question|safe }}</p>
+  </legend>
+  <div class="choices-list">
+    {% for choice in custom_choices %}
+    <div class="choice">
+      <div class="choice-result fa icon-2x"></div>
+      <div class="choice-selector">
+        <input id="choice-{{ self.html_id }}-{{ forloop.counter }}" type="checkbox"
+         name="{{ self.name }}" value="{{ choice.value }}"
+         {% if choice.value in self.student_choices and not hide_prev_answer %} checked{% endif %}
+        />
+      </div>
+      <label class="choice-label" for="choice-{{ self.html_id }}-{{ forloop.counter }}">
+        {{ choice.content|safe }}
+      </label>
+      <div class="choice-tips-container">
+        <div class="choice-tips"></div>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="feedback"></div>
+  </div>
+</fieldset>

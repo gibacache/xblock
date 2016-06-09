@@ -258,3 +258,5 @@ function MRQBlock(runtime, element) {
 
     };
 }
+
+ArgumentativeBlock = MRQBlock;

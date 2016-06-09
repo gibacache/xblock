@@ -62,6 +62,7 @@ BLOCKS = [
     'pb-message = problem_builder.message:MentoringMessageBlock',
     'pb-tip = problem_builder.tip:TipBlock',
     'pb-choice = problem_builder.choice:ChoiceBlock',
+    'pb-arg = problem_builder.argumentative:ArgumentativeBlock',
 
     'pb-dashboard = problem_builder.dashboard:DashboardBlock',
     'pb-data-export = problem_builder.instructor_tool:InstructorToolBlock',  # Deprecated; use 'pb-instructor-tool' now
